@@ -13,8 +13,9 @@ async function get(tabla, id) {
   return col.filter(item => item.id === id)[0] || null;
 }
 
-function upsert(tabla, data) {
+async function upsert(tabla, data) {
   db[tabla].push(data);
+  return data;
 }
 
 function remove(tabla, id) {
