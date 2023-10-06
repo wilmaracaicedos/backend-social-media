@@ -17,6 +17,7 @@ module.exports = (injectedStore) => {
       throw new Error('Informacion invalida');
     }
 
+    delete data.password;
     return auth.sign(data);
   }
 
