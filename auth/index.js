@@ -21,6 +21,10 @@ const check = {
     if (decoded.id !== owner) {
       throw error('No puedes hacer esto', 401);
     }
+  },
+
+  logged: (req) => {
+    const decoded = decodeHeader(req);
   }
 }
 

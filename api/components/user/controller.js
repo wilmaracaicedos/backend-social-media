@@ -40,9 +40,17 @@ module.exports = (injectedStore) => {
     return store.upsert(TABLA, user, body.id);
   }
 
+  function follow(from, to) {
+    return store.upsert(`${TABLA}_follow`, {
+      user_from: from,
+      user_to: to,
+    }, null);
+  }
+
   return {
     list,
     get,
     upsert,
+    follow,
   }
 }
