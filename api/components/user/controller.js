@@ -34,10 +34,10 @@ module.exports = (injectedStore) => {
         id: user.id,
         username: user.username,
         password: body.password,
-      });
+      }, body.id);
     }
 
-    return store.upsert(TABLA, user);
+    return store.upsert(TABLA, user, body.id);
   }
 
   return {

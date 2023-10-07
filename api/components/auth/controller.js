@@ -21,7 +21,7 @@ module.exports = (injectedStore) => {
     return auth.sign(data);
   }
 
-  async function upsert(data) {
+  async function upsert(data, bodyId) {
     const authData = {
       id: data.id,
     }
@@ -34,7 +34,7 @@ module.exports = (injectedStore) => {
       authData.password = await bcrypt.hash(data.password, 5);
     }
 
-    return store.upsert(TABLA, authData);
+    return store.upsert(TABLA, authData, bodyId);
   }
 
   return {
