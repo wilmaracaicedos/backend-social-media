@@ -11,7 +11,7 @@ module.exports = (injectedStore) => {
 
   async function login(username, password) {
     const data = await store.query(TABLA, { username: username });
-    const equals = await bcrypt.compare(password, data.password);
+    const equals = await bcrypt.compare(password, data[0].password);
 
     if (!equals) {
       throw new Error('Informacion invalida');
