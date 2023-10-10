@@ -1,0 +1,37 @@
+{
+  "apps": [
+    {
+      "name": "mysql",
+      "script": "mysql/index.js",
+      "instances": "1",
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "env_production" : {
+        "NODE_ENV": "production"
+      }
+    },
+    {
+      "name": "api",
+      "script": "api/index.js",
+      "instances": "1",
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "env_production" : {
+        "NODE_ENV": "production"
+      }
+    },
+    {
+      "name": "posts",
+      "script": "post/index.js",
+      "instances": "1",
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "env_production" : {
+        "NODE_ENV": "production"
+      }
+    }
+  ]
+}
