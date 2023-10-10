@@ -1,4 +1,4 @@
-const { list } = require('../user');
+const { list } = require('../../../api/components/user');
 
 const TABLA = 'post';
 

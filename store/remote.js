@@ -4,15 +4,19 @@ function createRemoteDB(host, port) {
   const URL = `http://${host}:${port}`;
 
   function list(table) {
-    return req('GET', table);
+    const url = `${URL}/${table}`;
+    return req('GET', url);
   }
 
-  // function get(table, id);
+  function get(table, id) {
+    const url = `${URL}/${table}/${id}`;
+    return req('GET', url);
+  }
+
   // function upsert(table, data);
   // function query(table, query, join);
 
-  function req(method, table, data) {
-    let url = `${URL}/${table}`;
+  function req(method, url, data) {
     body = '';
 
     return new Promise((resolve, reject) => {
@@ -37,6 +41,7 @@ function createRemoteDB(host, port) {
 
   return {
     list,
+    get,
   }
 }
 
