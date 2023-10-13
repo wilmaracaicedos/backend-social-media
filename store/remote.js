@@ -13,7 +13,24 @@ function createRemoteDB(host, port) {
     return req('GET', url);
   }
 
-  // function upsert(table, data);
+  function insert(table, data) {
+    const url = `${URL}/${table}`;
+    return req('POST', url, data);
+  }
+
+  function update(table, data) {
+    const url = `${URL}/${table}`;
+    return req('PUT', url, data);
+  }
+
+  function upsert(table, data) {
+    if (data.id) {
+      return update(table, data);
+    }
+
+    return insert(table, data);
+  }
+
   // function query(table, query, join);
 
   function req(method, url, data) {
@@ -42,6 +59,7 @@ function createRemoteDB(host, port) {
   return {
     list,
     get,
+    upsert,
   }
 }
 
